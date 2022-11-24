@@ -12,10 +12,11 @@ const SearchPage = () => {
   const navigate = useNavigate();
   const [preacherList, setPreacherList] = useState<number[]>([]);
   const search = useSearchStore((state) => state.value);
+  const [filterTagsArray, setfilterTagsArray] = useState<number[]>([]);
 
   useEffect(() => {
     const delayDebounceFn = setTimeout(() => {
-      getPreacherList(search).then((preachers) => {
+      getPreacherList(search, filterTagsArray).then((preachers) => {
         if (preachers.length === 1) {
           navigate(`/mpitory/${preachers[0]}`);
         } else {
@@ -25,7 +26,7 @@ const SearchPage = () => {
     }, 300);
 
     return () => clearTimeout(delayDebounceFn);
-  }, [search]);
+  }, [search, filterTagsArray]);
 
   return (
     <div className={classes.container}>
@@ -34,7 +35,7 @@ const SearchPage = () => {
           <PreacherCard key={id} id={id} />
         ))}
       </div>
-      <FilterTags active={[]} onChange={() => {}} />
+      <FilterTags active={filterTagsArray} onChange={setfilterTagsArray} />
     </div>
   );
 };
