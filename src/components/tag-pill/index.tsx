@@ -10,7 +10,7 @@ const TagPill = (props: Props) => {
   return (
     <button
       type="button"
-      className={classes.container}
+      className={`${classes.container} ${classes.filterTag}`}
       onClick={() => onClick?.(id)}
     >
       <div className={classes.dot} />

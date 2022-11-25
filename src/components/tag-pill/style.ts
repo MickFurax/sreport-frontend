@@ -32,6 +32,10 @@ const useStyles = createUseStyles((theme) => ({
     borderRadius: "50%",
     backgroundColor: ({ color }: Props) => color,
   },
+
+  filterTag: {
+    cursor: "pointer",
+  },
 }));
 
 export default useStyles;

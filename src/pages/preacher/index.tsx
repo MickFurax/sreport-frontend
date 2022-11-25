@@ -11,7 +11,7 @@ import useWorkingMonth from "@/hooks/working-month";
 import { getPreacher } from "@/services/preacher";
 
 import useStyles from "./style";
-import PreacherInfo from "@/components/pages/preacher/preacher-info"
+import PreacherInfo from "@/components/pages/preacher/preacher-info";
 
 const PreacherPage = () => {
   const { id } = useParams();
@@ -62,10 +62,8 @@ const PreacherPage = () => {
           />
         </div>
       </div>
-      <div>
-        <PreacherCard id={parseInt(id || "0")} registerUpdate={getUpdate} />
-        <PreacherInfo id={parseInt(id || "0")}  />
-      </div>
+      <PreacherCard id={parseInt(id || "0")} registerUpdate={getUpdate} />
+      <PreacherInfo id={parseInt(id || "0")} />
     </div>
   );
 };
